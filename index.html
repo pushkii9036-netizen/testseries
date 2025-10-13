@@ -3,332 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maha TET परीक्षा: मराठी 'काळ' सराव चाचणी | Success Digital Classes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>काळ (Tense) - Maha TET PYQ Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Body Styles */
-        :root {
-            --primary-color: #007bff;
-            --success-color: #28a745;
-            --danger-color: #dc3545;
-            --light-bg: #f8f9fa;
-            --dark-text: #212529;
-            --light-text: #6c757d;
-            --white-color: #ffffff;
-            --border-color: #dee2e6;
-        }
-
+        /* Custom styles for better aesthetics and the watermark */
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Reading Progress Bar */
-        .progress-container {
-            width: 100%;
-            height: 8px;
-            background: #ccc;
+        /* Watermark styling */
+        .watermark-container {
             position: fixed;
             top: 0;
-            z-index: 100;
-        }
-        .progress-bar {
-            height: 8px;
-            background: var(--primary-color);
-            width: 0%;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 800px;
-            margin: 40px auto 20px auto;
-            background-color: var(--white-color);
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        /* Header Styling */
-        .blog-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: var(--white-color);
-        }
-        .brand-name {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-        .blog-header h1 {
-            font-size: 2.2rem;
-            margin: 10px 0 0 0;
-            font-weight: 700;
-        }
-
-        /* Content Area */
-        .content-area {
-            padding: 20px 30px;
-        }
-
-        h3 {
-            color: #0056b3;
-            text-align: center;
-            font-size: 1.8rem;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        
-        /* Question Card Styling */
-        .question-card {
-            background-color: var(--white-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            transition: box-shadow 0.3s ease;
-        }
-        .question-card:hover {
-             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        .question-text {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #495057;
-        }
-
-        /* Interactive Quiz Styles */
-        .options-container { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
-        .option-label {
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            align-items: center;
-            padding: 0.85rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            z-index: 0; /* Behind content but above body bg */
+            pointer-events: none; /* Allows clicking through */
+            color: #000;
+            opacity: 0.04;
+            font-size: 1rem; /* Small size */
+            font-weight: 600;
+            text-transform: uppercase;
         }
-        .option-label:hover { background-color: #f0f9ff; transform: translateY(-2px); }
-        .option-label input { margin-right: 1rem; }
-        .option-label.correct { background-color: #d1fae5; border-color: #10b981; font-weight: 600; }
-        .option-label.incorrect { background-color: #fee2e2; border-color: #ef4444; }
 
-        .answer-explanation {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #e9f7ff;
-            border-left: 5px solid var(--primary-color);
-            border-radius: 4px;
-            font-size: 0.95rem;
+        .watermark-text {
+            transform: rotate(-30deg);
+            padding: 50px;
         }
         
-        /* Submit and Results */
-        #submit-btn {
+        /* Ensure content is above the watermark */
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Custom radio button styles */
+        .custom-radio input[type="radio"] {
+            display: none;
+        }
+
+        .custom-radio label {
             display: block;
-            width: 100%;
-            background: linear-gradient(135deg, var(--success-color), #218838);
-            color: white;
             padding: 1rem;
-            font-size: 1.25rem;
-            border: none;
-            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
             cursor: pointer;
-            font-weight: bold;
-            margin-top: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        #submit-btn:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(40,167,69,0.4); }
-        
-        #results-container {
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            background-color: #e9f7ff;
-            color: #0056b3;
-            display: none;
+            transition: all 0.2s ease-in-out;
+            margin-bottom: 0.75rem;
         }
 
-        /* Footer Styling */
-        .blog-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #343a40;
-            color: #f8f9fa;
+        .custom-radio input[type="radio"]:checked + label {
+            background-color: #ebf8ff;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
         }
-        .blog-footer p { margin: 0; }
         
-        /* Back to Top Button */
-        #toTopBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: opacity 0.3s, transform 0.3s;
+        .custom-radio label:hover {
+             border-color: #90cdf4;
         }
-        #toTopBtn:hover { background-color: #0056b3; transform: scale(1.1); }
 
-        /* Responsive design for smaller screens (Smartphones) */
-        @media (max-width: 600px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
-                box-shadow: none;
-            }
-            .blog-header h1 { font-size: 1.8rem; }
-            .content-area { padding: 15px; }
-            h3 { font-size: 1.5rem; }
-            .question-card, .option-label { padding: 0.8rem; }
+        /* Styles for review mode */
+        .review-mode .correct {
+            background-color: #c6f6d5;
+            border-color: #38a169;
+        }
+
+        .review-mode .incorrect {
+            background-color: #fed7d7;
+            border-color: #e53e3e;
+        }
+        
+        .review-mode .correct-answer {
+             border-color: #38a169;
+             box-shadow: 0 0 0 2px rgba(56, 161, 105, 0.5);
+        }
+
+        .review-mode input[type="radio"]:checked + label.incorrect {
+            box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.5);
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
+    <!-- Watermark container -->
+    <div id="watermark" class="watermark-container"></div>
+
+    <!-- Main content container -->
+    <div class="main-content container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl min-h-screen flex flex-col justify-center">
+        <!-- Header -->
+        <div class="text-center mb-6">
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-800">Maha TET PYQ सराव चाचणी</h1>
+            <h2 class="text-lg sm:text-xl text-gray-700 mt-2">विषय: मराठी व्याकरण - काळ (Tense)</h2>
+        </div>
+
+        <!-- Quiz Area -->
+        <div id="quiz-container" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg transition-all duration-300">
+            <!-- Question content will be dynamically injected here -->
+        </div>
+
+        <!-- Navigation -->
+        <div id="navigation-container" class="mt-6 flex justify-between items-center">
+            <button id="prev-btn" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed">मागे</button>
+            <div id="progress-indicator" class="text-gray-600 font-medium">प्रश्न 1 / 20</div>
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">पुढे</button>
+            <button id="submit-btn" class="hidden bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">चाचणी सबमिट करा</button>
+        </div>
+
+        <!-- Result Area -->
+        <div id="result-container" class="hidden mt-8 bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">तुमचा निकाल</h2>
+            <p id="score" class="text-5xl font-bold text-blue-600 mb-6">15 / 20</p>
+            <p id="feedback" class="text-lg text-gray-600 mb-8">उत्तम प्रयत्न! सराव करत रहा.</p>
+            <button id="review-btn" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200">उत्तरे तपासा</button>
+        </div>
     </div>
-
-    <div class="container">
-        <header class="blog-header">
-            <p class="brand-name"><strong>Success Digital Classes</strong> प्रस्तुत</p>
-            <h1>Maha TET: मराठी 'काळ' सराव चाचणी</h1>
-        </header>
-
-        <main class="content-area">
-            <div id="quiz-form">
-                <h3>Maha TET 'काळ' सराव चाचणी (विश्लेषणासह)</h3>
-                <p style="text-align: center; color: var(--light-text);">तुमच्या तयारीची चाचणी घेण्यासाठी खालील प्रश्न सोडवा. सर्व प्रश्न सोडवल्यानंतर 'चाचणी सबमिट करा' बटणावर क्लिक करा.</p>
-                
-                <!-- All 20 Questions are here, structured like the one below -->
-                <!-- Question 1 -->
-                <div class="question-card" data-answer="b">
-                    <p class="question-text">प्रश्न १. 'तो नेहमीच उशिरा येतो.' - या वाक्यातील काळ ओळखा. (TET 2013)</p>
-                    <div class="options-container">
-                       <label class="option-label"><input type="radio" name="q1" value="a">(अ) साधा वर्तमान काळ</label>
-                       <label class="option-label"><input type="radio" name="q1" value="b">(ब) रीती वर्तमान काळ</label>
-                       <label class="option-label"><input type="radio" name="q1" value="c">(क) अपूर्ण वर्तमान काळ</label>
-                       <label class="option-label"><input type="radio" name="q1" value="d">(ड) पूर्ण वर्तमान काळ</label>
-                    </div>
-                    <div class="answer-explanation">
-                        <p><strong>स्पष्टीकरण:</strong> 'नेहमीच' हा शब्द क्रिया सतत घडण्याची सवय (रीत) दर्शवतो. क्रिया वर्तमान काळात घडत असल्याने हा 'रीती वर्तमान काळ' आहे.</p>
-                    </div>
-                </div>
-
-                <!-- ... Questions 2 to 19 go here ... -->
-
-                <!-- Question 20 -->
-                 <div class="question-card" data-answer="d">
-                    <p class="question-text">प्रश्न २०. 'परीक्षेचा निकाल उद्या लागलेला असेल.' - या वाक्यातील काळ ओळखा.</p>
-                    <div class="options-container">
-                       <label class="option-label"><input type="radio" name="q20" value="a">(अ) साधा भविष्यकाळ</label>
-                       <label class="option-label"><input type="radio" name="q20" value="b">(ब) अपूर्ण भविष्यकाळ</label>
-                       <label class="option-label"><input type="radio" name="q20" value="c">(क) रीती भविष्यकाळ</label>
-                       <label class="option-label"><input type="radio" name="q20" value="d">(ड) पूर्ण भविष्यकाळ</label>
-                    </div>
-                    <div class="answer-explanation">
-                        <p><strong>स्पष्टीकरण:</strong> 'लागलेला असेल' या रूपावरून भविष्यात निकाल लागण्याची क्रिया पूर्ण झाली असेल, असा अंदाज व्यक्त होतो. म्हणून हा 'पूर्ण भविष्यकाळ' आहे.</p>
-                    </div>
-                </div>
-
-                <div id="results-container"></div>
-                <button type="button" id="submit-btn">चाचणी सबमिट करा</button>
-            </div>
-        </main>
-    </div>
-
-    <footer class="blog-footer">
-        <p><strong>Success Digital Classes</strong> कडून तुमच्या परीक्षेसाठी खूप खूप शुभेच्छा!</p>
-    </footer>
-
-    <button id="toTopBtn" title="वर जा">&#8679;</button>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- DATA (OFFLINE) ---
+            const quizData = [
+                { question: "तो नेहमीच खरे बोलतो.", options: ["साधा वर्तमानकाळ", "रीति भूतकाळ", "अपूर्ण वर्तमानकाळ", "साधा भविष्यकाळ"], answer: "साधा वर्तमानकाळ", year: 2013 },
+                { question: "मी निबंध लिहित असे.", options: ["अपूर्ण भूतकाळ", "रीति भूतकाळ", "साधा भूतकाळ", "पूर्ण भूतकाळ"], answer: "रीति भूतकाळ", year: 2014 },
+                { question: "सूर्य पूर्वेला उगवेल.", options: ["रीति भविष्यकाळ", "साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "साधा भविष्यकाळ", year: 2015 },
+                { question: "आई देवाची पूजा करीत आहे.", options: ["पूर्ण वर्तमानकाळ", "साधा वर्तमानकाळ", "अपूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ"], answer: "अपूर्ण वर्तमानकाळ", year: 2016 },
+                { question: "माधुरीने गाणे गायले होते.", options: ["पूर्ण भूतकाळ", "साधा भूतकाळ", "अपूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "पूर्ण भूतकाळ", year: 2017 },
+                { question: "उद्या पाऊस पडत असेल.", options: ["पूर्ण भविष्यकाळ", "रीति भविष्यकाळ", "साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ"], answer: "अपूर्ण भविष्यकाळ", year: 2018 },
+                { question: "आम्ही अभ्यास केला आहे.", options: ["साधा वर्तमानकाळ", "अपूर्ण वर्तमानकाळ", "पूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ"], answer: "पूर्ण वर्तमानकाळ", year: 2019 },
+                { question: "तेव्हा बस धावत होती.", options: ["साधा भूतकाळ", "पूर्ण भूतकाळ", "अपूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "अपूर्ण भूतकाळ", year: 2021 },
+                { question: "मी दररोज व्यायाम करतो.", options: ["अपूर्ण वर्तमानकाळ", "साधा वर्तमानकाळ", "रीति वर्तमानकाळ", "पूर्ण वर्तमानकाळ"], answer: "रीति वर्तमानकाळ", year: 2023 },
+                { question: "माझा अभ्यास पूर्ण झाला असेल.", options: ["साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "रीति भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "पूर्ण भविष्यकाळ", year: 2013 },
+                { question: "बाबांनी वर्तमानपत्र वाचले.", options: ["साधा भूतकाळ", "पूर्ण भूतकाळ", "रीति भूतकाळ", "अपूर्ण भूतकाळ"], answer: "साधा भूतकाळ", year: 2014 },
+                { question: "ती स्वयंपाक करत जाईल.", options: ["रीति भविष्यकाळ", "साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "रीति भविष्यकाळ", year: 2015 },
+                { question: "तो आत्ताच घरी आला.", options: ["साधा भूतकाळ", "आसन्न भूतकाळ (पूर्ण वर्तमानकाळ)", "अपूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "आसन्न भूतकाळ (पूर्ण वर्तमानकाळ)", year: 2016 },
+                { question: "मधू लाडू खात होता.", options: ["रीति भूतकाळ", "पूर्ण भूतकाळ", "अपूर्ण भूतकाळ", "साधा भूतकाळ"], answer: "अपूर्ण भूतकाळ", year: 2017 },
+                { question: "शिक्षक मुलांना शिकवत राहतील.", options: ["साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "रीति भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "रीति भविष्यकाळ", year: 2018 },
+                { question: "विज्ञानाने खूप प्रगती केली आहे.", options: ["पूर्ण वर्तमानकाळ", "साधा वर्तमानकाळ", "अपूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ"], answer: "पूर्ण वर्तमानकाळ", year: 2019 },
+                { question: "मी शाळेत जात असे.", options: ["अपूर्ण भूतकाळ", "साधा भूतकाळ", "पूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "रीति भूतकाळ", year: 2021 },
+                { question: "आम्ही उद्या सिनेमाला जाऊ.", options: ["पूर्ण भविष्यकाळ", "अपूर्ण भविष्यकाळ", "साधा भविष्यकाळ", "रीति भविष्यकाळ"], answer: "साधा भविष्यकाळ", year: 2023 },
+                { question: "तो पत्र लिहितो.", options: ["अपूर्ण वर्तमानकाळ", "पूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ", "साधा वर्तमानकाळ"], answer: "साधा वर्तमानकाळ", year: 2024 },
+                { question: "पावसाळा सुरू झाला होता.", options: ["पूर्ण भूतकाळ", "अपूर्ण भूतकाळ", "साधा भूतकाळ", "रीति भूतकाळ"], answer: "पूर्ण भूतकाळ", year: 2024 }
+            ];
+
+            // --- STATE ---
+            let currentQuestionIndex = 0;
+            let userAnswers = new Array(quizData.length).fill(null);
+            let quizFinished = false;
+
+            // --- SELECTORS ---
+            const quizContainer = document.getElementById('quiz-container');
+            const navigationContainer = document.getElementById('navigation-container');
+            const resultContainer = document.getElementById('result-container');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
             const submitBtn = document.getElementById('submit-btn');
-            const quizForm = document.getElementById('quiz-form');
-            const resultsContainer = document.getElementById('results-container');
-            const toTopBtn = document.getElementById("toTopBtn");
+            const reviewBtn = document.getElementById('review-btn');
+            const progressIndicator = document.getElementById('progress-indicator');
+            const watermarkContainer = document.getElementById('watermark');
 
-            // --- Quiz Logic ---
-            submitBtn.addEventListener('click', () => {
-                const questionCards = quizForm.querySelectorAll('.question-card');
-                let score = 0;
+            // --- FUNCTIONS ---
+            
+            // Function to generate and add watermark
+            function generateWatermark() {
+                const watermarkText = "SUCCESS DIGITAL CLASSES";
+                const textCount = 50; // Number of times to repeat the text
+                let watermarkHTML = '';
+                for(let i = 0; i < textCount; i++) {
+                    watermarkHTML += `<div class="watermark-text">${watermarkText}</div>`;
+                }
+                watermarkContainer.innerHTML = watermarkHTML;
+            }
+
+            // Function to render the question
+            function renderQuestion(index, isReview = false) {
+                const questionData = quizData[index];
+                let optionsHTML = '';
                 
-                questionCards.forEach(card => {
-                    const correctAnswer = card.dataset.answer;
-                    const selectedOption = card.querySelector('input[type="radio"]:checked');
-                    const explanation = card.querySelector('.answer-explanation');
+                questionData.options.forEach((option, i) => {
+                    const isChecked = userAnswers[index] === option;
+                    let optionClass = '';
 
-                    card.querySelectorAll('input[type="radio"]').forEach(radio => { radio.disabled = true; });
-
-                    if (selectedOption) {
-                        const selectedLabel = selectedOption.parentElement;
-                        if (selectedOption.value === correctAnswer) {
-                            score++;
-                            selectedLabel.classList.add('correct');
-                        } else {
-                            selectedLabel.classList.add('incorrect');
-                            card.querySelector(`input[value="${correctAnswer}"]`).parentElement.classList.add('correct');
+                    if (isReview) {
+                        const isCorrectAnswer = option === questionData.answer;
+                        if (isCorrectAnswer) {
+                            optionClass = 'correct';
                         }
-                    } else {
-                        card.querySelector(`input[value="${correctAnswer}"]`).parentElement.classList.add('correct');
+                        if (isChecked && !isCorrectAnswer) {
+                            optionClass = 'incorrect';
+                        }
+                        // Also highlight the correct answer if user chose wrong
+                        if (!isChecked && isCorrectAnswer){
+                            optionClass += ' correct-answer';
+                        }
                     }
-                    if (explanation) { explanation.style.display = 'block'; }
+
+                    optionsHTML += `
+                        <div class="custom-radio">
+                            <input type="radio" id="option${i}" name="question${index}" value="${option}" ${isChecked ? 'checked' : ''} ${isReview ? 'disabled' : ''}>
+                            <label for="option${i}" class="${optionClass}">
+                                <span class="font-medium">${i + 1}) ${option}</span>
+                            </label>
+                        </div>
+                    `;
                 });
+                
+                quizContainer.innerHTML = `
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-blue-600 mb-2">प्रश्न ${index + 1} / ${quizData.length}</p>
+                        <p class="text-lg font-bold text-gray-800">${questionData.question}</p>
+                        <p class="text-xs text-gray-500 mt-1"> संदर्भ: महा TET ${questionData.year}</p>
+                    </div>
+                    <div class="${isReview ? 'review-mode' : ''}">
+                        ${optionsHTML}
+                    </div>
+                `;
 
-                resultsContainer.innerHTML = `तुमचा अंतिम स्कोअर: ${score} / ${questionCards.length}`;
-                resultsContainer.style.display = 'block';
-                submitBtn.style.display = 'none';
-                resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
+                // Add event listeners for new radio buttons
+                if (!isReview) {
+                    document.querySelectorAll(`input[name="question${index}"]`).forEach(radio => {
+                        radio.addEventListener('change', (e) => {
+                            userAnswers[index] = e.target.value;
+                        });
+                    });
+                }
+            }
             
-            // --- Scroll and UI Logic ---
-            const progressBar = document.getElementById("progressBar");
-            
-            function handleScroll() {
-                // Progress Bar
-                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (scrollTop / scrollHeight) * 100;
-                progressBar.style.width = scrolled + "%";
-
-                // Back to Top Button
-                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                    toTopBtn.style.display = "block";
+            // Function to update UI state and navigation
+            function updateUI() {
+                progressIndicator.textContent = `प्रश्न ${currentQuestionIndex + 1} / ${quizData.length}`;
+                prevBtn.disabled = currentQuestionIndex === 0;
+                
+                if (currentQuestionIndex === quizData.length - 1) {
+                    nextBtn.classList.add('hidden');
+                    submitBtn.classList.remove('hidden');
                 } else {
-                    toTopBtn.style.display = "none";
+                    nextBtn.classList.remove('hidden');
+                    submitBtn.classList.add('hidden');
                 }
             }
 
-            window.onscroll = handleScroll;
+            // Function to show results
+            function showResults() {
+                quizFinished = true;
+                quizContainer.classList.add('hidden');
+                navigationContainer.classList.add('hidden');
+                resultContainer.classList.remove('hidden');
 
-            toTopBtn.addEventListener("click", () => {
-                window.scrollTo({top: 0, behavior: 'smooth'});
+                let score = 0;
+                userAnswers.forEach((answer, index) => {
+                    if (answer === quizData[index].answer) {
+                        score++;
+                    }
+                });
+
+                document.getElementById('score').textContent = `${score} / ${quizData.length}`;
+                
+                const percentage = (score / quizData.length) * 100;
+                let feedbackText = '';
+                if (percentage >= 80) feedbackText = "उत्कृष्ट कामगिरी! तुम्ही खूप छान तयारी केली आहे.";
+                else if (percentage >= 60) feedbackText = "चांगला प्रयत्न! अजून थोडा सराव केल्यास उत्तम गुण मिळतील.";
+                else feedbackText = "काळजी करू नका! अधिक सराव आवश्यक आहे. पुन्हा प्रयत्न करा.";
+                document.getElementById('feedback').textContent = feedbackText;
+            }
+            
+            // Function for review mode
+            function startReview() {
+                 quizContainer.classList.remove('hidden');
+                 navigationContainer.classList.remove('hidden');
+                 resultContainer.classList.add('hidden');
+                 submitBtn.classList.add('hidden');
+                 nextBtn.classList.remove('hidden');
+                 
+                 currentQuestionIndex = 0;
+                 renderQuestion(currentQuestionIndex, true);
+                 updateUI();
+            }
+
+            // --- EVENT LISTENERS ---
+            nextBtn.addEventListener('click', () => {
+                if (currentQuestionIndex < quizData.length - 1) {
+                    currentQuestionIndex++;
+                    renderQuestion(currentQuestionIndex, quizFinished);
+                    updateUI();
+                }
             });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    renderQuestion(currentQuestionIndex, quizFinished);
+                    updateUI();
+                }
+            });
+            
+            submitBtn.addEventListener('click', () => {
+                // Simple confirmation before submitting
+                 const isConfirmed = confirm('तुम्हाला चाचणी सबमिट करायची आहे का?');
+                 if (isConfirmed) {
+                    showResults();
+                 }
+            });
+
+            reviewBtn.addEventListener('click', startReview);
+
+            // --- INITIALIZATION ---
+            generateWatermark();
+            renderQuestion(currentQuestionIndex);
+            updateUI();
         });
     </script>
 </body>
 </html>
-
