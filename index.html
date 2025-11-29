@@ -1,323 +1,920 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>काळ (Tense) - Maha TET PYQ Test</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>CTET 2025 Practice Test (Bilingual)</title>
     <style>
-        /* Custom styles for better aesthetics and the watermark */
-        body {
-            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
-            position: relative;
-            overflow-x: hidden;
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #e67e22;
+            --bg-color: #f9f9f9;
         }
 
-        /* Watermark styling */
-        .watermark-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.0rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .meta-info {
             display: flex;
+            justify-content: space-between;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: bold;
             flex-wrap: wrap;
-            justify-content: space-around;
-            align-content: space-around;
-            z-index: 0; /* Behind content but above body bg */
-            pointer-events: none; /* Allows clicking through */
-            color: #000;
-            opacity: 0.04;
-            font-size: 1rem; /* Small size */
-            font-weight: 600;
+        }
+
+        /* Promotion Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-tag {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        .watermark-text {
-            transform: rotate(-30deg);
-            padding: 50px;
-        }
-        
-        /* Ensure content is above the watermark */
-        .main-content {
-            position: relative;
-            z-index: 1;
+        .promo-title {
+            font-size: 1.8rem;
+            margin: 10px 0;
+            font-weight: 800;
         }
 
-        /* Custom radio button styles */
-        .custom-radio input[type="radio"] {
-            display: none;
-        }
-
-        .custom-radio label {
-            display: block;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.5rem;
+        .cta-button {
+            background-color: white;
+            color: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            margin-bottom: 0.75rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            transition: transform 0.2s;
         }
 
-        .custom-radio input[type="radio"]:checked + label {
-            background-color: #ebf8ff;
-            border-color: #4299e1;
-            box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Question Section */
+        .section-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            transition: box-shadow 0.2s;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .q-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
         }
         
-        .custom-radio label:hover {
-             border-color: #90cdf4;
-        }
-
-        /* Styles for review mode */
-        .review-mode .correct {
-            background-color: #c6f6d5;
-            border-color: #38a169;
-        }
-
-        .review-mode .incorrect {
-            background-color: #fed7d7;
-            border-color: #e53e3e;
+        .hindi-text {
+            display: block;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-family: 'Nirmala UI', 'Arial Unicode MS', sans-serif;
         }
         
-        .review-mode .correct-answer {
-             border-color: #38a169;
-             box-shadow: 0 0 0 2px rgba(56, 161, 105, 0.5);
+        .eng-text {
+            display: block;
+            color: #555;
+            font-size: 0.95rem;
+            font-style: italic;
         }
 
-        .review-mode input[type="radio"]:checked + label.incorrect {
-            box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.5);
+        .options {
+            list-style-type: none;
+            padding-left: 0;
         }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .option-label:hover {
+            background-color: #f0f8ff;
+            border-color: #b0d4f1;
+        }
+
+        .option-input {
+            margin-right: 12px;
+            margin-top: 6px;
+            transform: scale(1.2);
+        }
+
+        /* Submit Button */
+        .submit-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .submit-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #219150;
+        }
+
+        /* Result Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            border: 5px solid var(--accent-color);
+        }
+
+        .rank-box {
+            background: #f1f8e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #c5e1a5;
+        }
+        
+        .rank-number {
+            font-size: 1.5rem;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .redirect-msg {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
 
-    <!-- Watermark container -->
-    <div id="watermark" class="watermark-container"></div>
-
-    <!-- Main content container -->
-    <div class="main-content container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl min-h-screen flex flex-col justify-center">
-        <!-- Header -->
-        <div class="text-center mb-6">
-            <h1 class="text-3xl sm:text-4xl font-bold text-blue-800">Maha TET PYQ सराव चाचणी</h1>
-            <h2 class="text-lg sm:text-xl text-gray-700 mt-2">विषय: मराठी व्याकरण - काळ (Tense)</h2>
+    <header>
+        <h1>CTET Practice Test 2025</h1>
+        <div class="subtitle">Bilingual (Hindi & English)</div>
+        <div class="meta-info">
+            <span>Sub: CDP, Math, EVS</span>
+            <span>Marks: 20</span>
+            <span>Time: 20 Mins</span>
         </div>
+    </header>
 
-        <!-- Quiz Area -->
-        <div id="quiz-container" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg transition-all duration-300">
-            <!-- Question content will be dynamically injected here -->
+    <!-- PROMOTION SECTION -->
+    <div class="promo-banner">
+        <div class="promo-tag">Recommended</div>
+        <div class="promo-title">Success Digital App</div>
+        <p>Best App for CTET & Teaching Exams Preparation</p>
+        <a href="https://play.google.com/store/apps/details?id=com.ezgcka.oujtga&pcampaignid=web_share" class="cta-button" target="_blank">Download App</a>
+    </div>
+
+    <form id="quizForm">
+
+    <!-- SECTION 1: CDP -->
+    <h3 class="section-header">Part I: CDP (बाल विकास एवं शिक्षाशास्त्र)</h3>
+
+    <!-- Q1 -->
+    <div class="question-card" data-correct="A">
+        <div class="q-text">
+            <span class="hindi-text">Q1. लेव वाइगोत्स्की के अनुसार, अधिगम को पृथक नहीं किया जा सकता:</span>
+            <span class="eng-text">According to Lev Vygotsky, learning cannot be separated from:</span>
         </div>
-
-        <!-- Navigation -->
-        <div id="navigation-container" class="mt-6 flex justify-between items-center">
-            <button id="prev-btn" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed">मागे</button>
-            <div id="progress-indicator" class="text-gray-600 font-medium">प्रश्न 1 / 20</div>
-            <button id="next-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">पुढे</button>
-            <button id="submit-btn" class="hidden bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">चाचणी सबमिट करा</button>
-        </div>
-
-        <!-- Result Area -->
-        <div id="result-container" class="hidden mt-8 bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">तुमचा निकाल</h2>
-            <p id="score" class="text-5xl font-bold text-blue-600 mb-6">15 / 20</p>
-            <p id="feedback" class="text-lg text-gray-600 mb-8">उत्तम प्रयत्न! सराव करत रहा.</p>
-            <button id="review-btn" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200">उत्तरे तपासा</button>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q1" value="A" class="option-input">
+                <span>(A) उसके सामाजिक संदर्भ से / Its social context</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q1" value="B" class="option-input">
+                <span>(B) अवबोधन और अवधानात्मक प्रक्रियाओं से / Perception and attention processes</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q1" value="C" class="option-input">
+                <span>(C) पुनर्बलन से / Reinforcement</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q1" value="D" class="option-input">
+                <span>(D) व्यवहार में मापने योग्य परिवर्तन से / Measurable change in behavior</span>
+            </label>
         </div>
     </div>
 
+    <!-- Q2 -->
+    <div class="question-card" data-correct="D">
+        <div class="q-text">
+            <span class="hindi-text">Q2. निम्नलिखित में से कौन सा विकास का सिद्धांत है?</span>
+            <span class="eng-text">Which of the following is a principle of development?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q2" value="A" class="option-input">
+                <span>(A) विकास हमेशा रेखीय होता है / Development is always linear</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q2" value="B" class="option-input">
+                <span>(B) यह निरंतर चलने वाली प्रक्रिया नहीं है / It is a discontinuous process</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q2" value="C" class="option-input">
+                <span>(C) विकास की सभी प्रक्रियाएं अंतःसंबंधित नहीं हैं / All processes of development are not interconnected</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q2" value="D" class="option-input">
+                <span>(D) सभी की विकास दर समान नहीं होती / Development does not proceed at the same pace for all</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" data-correct="D">
+        <div class="q-text">
+            <span class="hindi-text">Q3. 'लिंग' (Gender) है:</span>
+            <span class="eng-text">'Gender' is a/an:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q3" value="A" class="option-input">
+                <span>(A) जैविक सत्ता / Biological entity</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q3" value="B" class="option-input">
+                <span>(B) शारीरिक संरचना / Physiological construct</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q3" value="C" class="option-input">
+                <span>(C) सहज गुण / Innate quality</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q3" value="D" class="option-input">
+                <span>(D) सामाजिक संरचना / Social construct</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" data-correct="B">
+        <div class="q-text">
+            <span class="hindi-text">Q4. समावेशी शिक्षा मानती है कि हमें ______ को ______ के अनुरूप बदलना है।</span>
+            <span class="eng-text">Inclusive Education assumes that we should change the ______ to fit the ______.</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q4" value="A" class="option-input">
+                <span>(A) बच्चे / व्यवस्था (Child / System)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q4" value="B" class="option-input">
+                <span>(B) व्यवस्था / बच्चे (System / Child)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q4" value="C" class="option-input">
+                <span>(C) परिवेश / परिवार (Environment / Family)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q4" value="D" class="option-input">
+                <span>(D) बच्चे / परिवेश (Child / Environment)</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" data-correct="C">
+        <div class="q-text">
+            <span class="hindi-text">Q5. पियाजे के अनुसार, बच्चा किस अवस्था में वस्तुओं और घटनाओं के बारे में तार्किक रूप से सोचना शुरू करता है?</span>
+            <span class="eng-text">According to Piaget, at which stage does a child begin to think logically about objects and events?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q5" value="A" class="option-input">
+                <span>(A) संवेदी-पेशीय अवस्था / Sensory-motor stage</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q5" value="B" class="option-input">
+                <span>(B) पूर्व-संक्रियात्मक अवस्था / Pre-operational stage</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q5" value="C" class="option-input">
+                <span>(C) मूर्त संक्रियात्मक अवस्था / Concrete operational stage</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q5" value="D" class="option-input">
+                <span>(D) औपचारिक संक्रियात्मक अवस्था / Formal operational stage</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q6 -->
+    <div class="question-card" data-correct="D">
+        <div class="q-text">
+            <span class="hindi-text">Q6. निम्नलिखित में से कौन सी 'प्रतिभाशाली' शिक्षार्थी की विशेषता नहीं है?</span>
+            <span class="eng-text">Which of the following is NOT a characteristic of a "Gifted" learner?</span>
+        </div>
+        <div class="options">
+             <label class="option-label">
+                <input type="radio" name="q6" value="A" class="option-input">
+                <span>(A) उच्च श्रेणी की मानसिक प्रक्रियाएं / Higher order mental processes</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q6" value="B" class="option-input">
+                <span>(B) उच्च आत्म-क्षमता / High self-efficacy</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q6" value="C" class="option-input">
+                <span>(C) अंतर्दृष्टिपूर्वक समस्याओं का समाधान करना / Solves problems insightfully</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q6" value="D" class="option-input">
+                <span>(D) आसानी से आक्रामक और कुंठित हो जाना / Gets aggressive and frustrated easily</span>
+            </label>
+         </div>
+     </div>
+     
+     <!-- Q7 -->
+     <div class="question-card" data-correct="B">
+        <div class="q-text">
+            <span class="hindi-text">Q7. 'सीखने के लिए आकलन' का प्राथमिक उद्देश्य क्या है?</span>
+            <span class="eng-text">The primary objective of Assessment for Learning is:</span>
+        </div>
+        <div class="options">
+             <label class="option-label">
+                <input type="radio" name="q7" value="A" class="option-input">
+                <span>(A) छात्रों को रैंक देना / To assign ranks to students</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q7" value="B" class="option-input">
+                <span>(B) शिक्षण की योजना बनाने के लिए बच्चों की समझ और अंतराल को जानना / To understand children's clarity and gaps to plan teaching</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q7" value="C" class="option-input">
+                <span>(C) छात्रों को पास या फेल घोषित करना / To label students as pass or fail</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q7" value="D" class="option-input">
+                <span>(D) मानक के साथ छात्र के प्रदर्शन की तुलना करना / To compare student performance with a standard</span>
+            </label>
+         </div>
+     </div>
+
+    <!-- SECTION 2: MATHEMATICS -->
+    <h3 class="section-header">Part II: Mathematics (गणित)</h3>
+
+    <!-- Q8 -->
+    <div class="question-card" data-correct="A">
+        <div class="q-text">
+            <span class="hindi-text">Q8. 29503 में 5 के स्थानीय मान और 32071 में 7 के अंकित (जातीय) मान में अंतर है:</span>
+            <span class="eng-text">The difference between the place value of 5 in 29503 and the face value of 7 in 32071 is:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q8" value="A" class="option-input">
+                <span>(A) 493</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q8" value="B" class="option-input">
+                <span>(B) 430</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q8" value="C" class="option-input">
+                <span>(C) 4993</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q8" value="D" class="option-input">
+                <span>(D) 43</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card" data-correct="B">
+        <div class="q-text">
+            <span class="hindi-text">Q9. निम्नलिखित में से कौन सा एक गणितीय प्रक्रम नहीं है?</span>
+            <span class="eng-text">Which of the following is NOT a mathematical process?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q9" value="A" class="option-input">
+                <span>(A) मानसदर्शन (Visualisation)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q9" value="B" class="option-input">
+                <span>(B) कंठस्थ करना (Memorization)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q9" value="C" class="option-input">
+                <span>(C) आकलन करना (Estimation)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q9" value="D" class="option-input">
+                <span>(D) पक्षांतरण (Transposition)</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" data-correct="B">
+        <div class="q-text">
+            <span class="hindi-text">Q10. एक शिक्षिका पैटर्न सिखाने के लिए मोतियों और धागों का उपयोग करती है। यह किसका उदाहरण है?</span>
+            <span class="eng-text">A teacher uses beads and strings to teach patterns. This is an example of:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q10" value="A" class="option-input">
+                <span>(A) निगमनात्मक विधि / Deductive method</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q10" value="B" class="option-input">
+                <span>(B) खेल विधि / Play-way method</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q10" value="C" class="option-input">
+                <span>(C) विश्लेषणात्मक विधि / Analytic method</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q10" value="D" class="option-input">
+                <span>(D) व्याख्यान विधि / Lecture method</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q11 -->
+    <div class="question-card" data-correct="D">
+        <div class="q-text">
+            <span class="hindi-text">Q11. 3 & 1/3 में कितने 1/6 हैं?</span>
+            <span class="eng-text">How many 1/6 are there in 3 & 1/3?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q11" value="A" class="option-input">
+                <span>(A) 12</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q11" value="B" class="option-input">
+                <span>(B) 15</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q11" value="C" class="option-input">
+                <span>(C) 18</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q11" value="D" class="option-input">
+                <span>(D) 20</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q12 -->
+    <div class="question-card" data-correct="C">
+        <div class="q-text">
+            <span class="hindi-text">Q12. निम्नलिखित में से कौन सा 'मुक्त अंत वाला प्रश्न' (Open-ended question) है?</span>
+            <span class="eng-text">Which of the following is an open-ended question?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q12" value="A" class="option-input">
+                <span>(A) 25, 71, 19 को आरोही क्रम में लिखें / Write 25, 71, 19 in ascending order.</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q12" value="B" class="option-input">
+                <span>(B) कौन सा बड़ा है: 1/3 या 1/5? / Which is more: 1/3 or 1/5?</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q12" value="C" class="option-input">
+                <span>(C) 2.7 से बड़ी कोई भी चार संख्याएँ लिखें / Write any four numbers greater than 2.7.</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q12" value="D" class="option-input">
+                <span>(D) 7 + 10 क्या है? / What is 7 + 10?</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q13 -->
+    <div class="question-card" data-correct="A">
+        <div class="q-text">
+            <span class="hindi-text">Q13. वैन हीले के ज्यामितीय विचार के सिद्धांत में, किस स्तर पर छात्र आकृतियों को उनकी बनावट के आधार पर पहचानते हैं?</span>
+            <span class="eng-text">In Van Hiele's theory of geometric thinking, the level at which students recognize shapes by their appearance is:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q13" value="A" class="option-input">
+                <span>(A) चाक्षुषीकरण / Visualization (Level 0)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q13" value="B" class="option-input">
+                <span>(B) विश्लेषण / Analysis (Level 1)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q13" value="C" class="option-input">
+                <span>(C) अनौपचारिक निगमन / Informal Deduction (Level 2)</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q13" value="D" class="option-input">
+                <span>(D) दृढ़ता / Rigor (Level 4)</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- SECTION 3: EVS -->
+    <h3 class="section-header">Part III: EVS (पर्यावरण अध्ययन)</h3>
+
+    <!-- Q14 -->
+    <div class="question-card" data-correct="D">
+        <div class="q-text">
+            <span class="hindi-text">Q14. निम्नलिखित में से कौन सा जड़ों का समूह है?</span>
+            <span class="eng-text">Which one of the following is a group of roots?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q14" value="A" class="option-input">
+                <span>(A) चुकंदर, आलू, अदरक / Beetroot, Potato, Ginger</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q14" value="B" class="option-input">
+                <span>(B) गाजर, हल्दी, अदरक / Carrot, Turmeric, Ginger</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q14" value="C" class="option-input">
+                <span>(C) शकरकंद, मूली, हल्दी / Sweet Potato, Radish, Turmeric</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q14" value="D" class="option-input">
+                <span>(D) गाजर, चुकंदर, मूली / Carrot, Beetroot, Radish</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card" data-correct="B">
+        <div class="q-text">
+            <span class="hindi-text">Q15. भारत के किस राज्य में आमतौर पर 'टैपिओका' (कप्पा) खाया जाता है?</span>
+            <span class="eng-text">In which Indian state is 'Tapioca' commonly eaten?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q15" value="A" class="option-input">
+                <span>(A) बिहार / Bihar</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q15" value="B" class="option-input">
+                <span>(B) केरल / Kerala</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q15" value="C" class="option-input">
+                <span>(C) तमिलनाडु / Tamil Nadu</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q15" value="D" class="option-input">
+                <span>(D) आंध्र प्रदेश / Andhra Pradesh</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="question-card" data-correct="B">
+        <div class="q-text">
+            <span class="hindi-text">Q16. 1930 में गांधीजी द्वारा 'दांडी यात्रा' का आयोजन किसके विरोध में किया गया था?</span>
+            <span class="eng-text">The "Dandi March" was organized by Gandhiji in 1930 to protest against:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q16" value="A" class="option-input">
+                <span>(A) चीनी पर कर / Tax on Sugar</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q16" value="B" class="option-input">
+                <span>(B) नमक पर कर / Tax on Salt</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q16" value="C" class="option-input">
+                <span>(C) विदेशी कपड़े / Foreign Clothes</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q16" value="D" class="option-input">
+                <span>(D) छुआछूत / Untouchability</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q17 -->
+    <div class="question-card" data-correct="C">
+        <div class="q-text">
+            <span class="hindi-text">Q17. निम्नलिखित में से कौन सा पक्षी अपना घोंसला कांटेदार झाड़ी या कैक्टस के पौधे में बनाता है?</span>
+            <span class="eng-text">Which of the following birds makes its nest in a thorny bush or cactus plant?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q17" value="A" class="option-input">
+                <span>(A) शकरखोरा / Sunbird</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q17" value="B" class="option-input">
+                <span>(B) बया (जुलाहा) / Weaverbird</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q17" value="C" class="option-input">
+                <span>(C) फाख्ता (कपोत) / Dove</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q17" value="D" class="option-input">
+                <span>(D) कलचड़ी / Indian Robin</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q18 -->
+    <div class="question-card" data-correct="A">
+        <div class="q-text">
+            <span class="hindi-text">Q18. तमिलनाडु के पड़ोसी राज्य हैं:</span>
+            <span class="eng-text">The neighboring states of Tamil Nadu are:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q18" value="A" class="option-input">
+                <span>(A) केरल, कर्नाटक, आंध्र प्रदेश / Kerala, Karnataka, Andhra Pradesh</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q18" value="B" class="option-input">
+                <span>(B) केरल, गुजरात, कर्नाटक / Kerala, Gujarat, Karnataka</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q18" value="C" class="option-input">
+                <span>(C) आंध्र प्रदेश, गोवा, कर्नाटक / Andhra Pradesh, Goa, Karnataka</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q18" value="D" class="option-input">
+                <span>(D) गोवा, कर्नाटक, केरल / Goa, Karnataka, Kerala</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q19 -->
+    <div class="question-card" data-correct="D">
+        <div class="q-text">
+            <span class="hindi-text">Q19. 'कुडुक' कहाँ के लोगों की भाषा है?</span>
+            <span class="eng-text">'Kuduk' is the language of the people of:</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q19" value="A" class="option-input">
+                <span>(A) मिजोरम / Mizoram</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q19" value="B" class="option-input">
+                <span>(B) मणिपुर / Manipur</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q19" value="C" class="option-input">
+                <span>(C) अरुणाचल प्रदेश / Arunachal Pradesh</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q19" value="D" class="option-input">
+                <span>(D) झारखंड / Jharkhand</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Q20 -->
+    <div class="question-card" data-correct="A">
+        <div class="q-text">
+            <span class="hindi-text">Q20. 'परिवार और मित्र' मुख्य विषय (Theme) के अंतर्गत उप-विषय (Sub-theme) कौन सा है?</span>
+            <span class="eng-text">Which of the following is a sub-theme under the broad theme 'Family and Friends'?</span>
+        </div>
+        <div class="options">
+            <label class="option-label">
+                <input type="radio" name="q20" value="A" class="option-input">
+                <span>(A) कार्य और खेल / Work and Play</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q20" value="B" class="option-input">
+                <span>(B) भोजन / Food</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q20" value="C" class="option-input">
+                <span>(C) पानी / Water</span>
+            </label>
+            <label class="option-label">
+                <input type="radio" name="q20" value="D" class="option-input">
+                <span>(D) आवास / Shelter</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="submit-container">
+        <button type="button" class="submit-btn" onclick="submitTest()">Submit Test</button>
+    </div>
+
+    </form>
+
+    <!-- RESULT MODAL -->
+    <div id="resultModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 style="color:var(--primary-color);">Test Result</h2>
+            <div class="score-circle" id="scoreDisplay">0/20</div>
+            
+            <div class="rank-box">
+                <div>Your Simulated All India Rank:</div>
+                <div class="rank-number" id="rankDisplay">#Calculating...</div>
+            </div>
+
+            <div class="redirect-msg">
+                Please wait, checking more tests... <span class="spinner"></span>
+                <br>Redirecting to Success Digital App in 3 seconds...
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Promo -->
+    <div style="text-align: center; margin-top: 40px; padding: 20px; border-top: 2px dashed #ccc;">
+        <p style="font-size: 1.1rem; color: #555;">Need more practice? Get 50+ Mock Tests on</p>
+        <h2 style="color: var(--primary-color); margin: 5px 0;">Success Digital App</h2>
+        <p style="font-size: 0.9rem;">Available on Google Play Store</p>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- DATA (OFFLINE) ---
-            const quizData = [
-                { question: "तो नेहमीच खरे बोलतो.", options: ["साधा वर्तमानकाळ", "रीति भूतकाळ", "अपूर्ण वर्तमानकाळ", "साधा भविष्यकाळ"], answer: "साधा वर्तमानकाळ", year: 2013 },
-                { question: "मी निबंध लिहित असे.", options: ["अपूर्ण भूतकाळ", "रीति भूतकाळ", "साधा भूतकाळ", "पूर्ण भूतकाळ"], answer: "रीति भूतकाळ", year: 2014 },
-                { question: "सूर्य पूर्वेला उगवेल.", options: ["रीति भविष्यकाळ", "साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "साधा भविष्यकाळ", year: 2015 },
-                { question: "आई देवाची पूजा करीत आहे.", options: ["पूर्ण वर्तमानकाळ", "साधा वर्तमानकाळ", "अपूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ"], answer: "अपूर्ण वर्तमानकाळ", year: 2016 },
-                { question: "माधुरीने गाणे गायले होते.", options: ["पूर्ण भूतकाळ", "साधा भूतकाळ", "अपूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "पूर्ण भूतकाळ", year: 2017 },
-                { question: "उद्या पाऊस पडत असेल.", options: ["पूर्ण भविष्यकाळ", "रीति भविष्यकाळ", "साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ"], answer: "अपूर्ण भविष्यकाळ", year: 2018 },
-                { question: "आम्ही अभ्यास केला आहे.", options: ["साधा वर्तमानकाळ", "अपूर्ण वर्तमानकाळ", "पूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ"], answer: "पूर्ण वर्तमानकाळ", year: 2019 },
-                { question: "तेव्हा बस धावत होती.", options: ["साधा भूतकाळ", "पूर्ण भूतकाळ", "अपूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "अपूर्ण भूतकाळ", year: 2021 },
-                { question: "मी दररोज व्यायाम करतो.", options: ["अपूर्ण वर्तमानकाळ", "साधा वर्तमानकाळ", "रीति वर्तमानकाळ", "पूर्ण वर्तमानकाळ"], answer: "रीति वर्तमानकाळ", year: 2023 },
-                { question: "माझा अभ्यास पूर्ण झाला असेल.", options: ["साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "रीति भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "पूर्ण भविष्यकाळ", year: 2013 },
-                { question: "बाबांनी वर्तमानपत्र वाचले.", options: ["साधा भूतकाळ", "पूर्ण भूतकाळ", "रीति भूतकाळ", "अपूर्ण भूतकाळ"], answer: "साधा भूतकाळ", year: 2014 },
-                { question: "ती स्वयंपाक करत जाईल.", options: ["रीति भविष्यकाळ", "साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "रीति भविष्यकाळ", year: 2015 },
-                { question: "तो आत्ताच घरी आला.", options: ["साधा भूतकाळ", "आसन्न भूतकाळ (पूर्ण वर्तमानकाळ)", "अपूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "आसन्न भूतकाळ (पूर्ण वर्तमानकाळ)", year: 2016 },
-                { question: "मधू लाडू खात होता.", options: ["रीति भूतकाळ", "पूर्ण भूतकाळ", "अपूर्ण भूतकाळ", "साधा भूतकाळ"], answer: "अपूर्ण भूतकाळ", year: 2017 },
-                { question: "शिक्षक मुलांना शिकवत राहतील.", options: ["साधा भविष्यकाळ", "अपूर्ण भविष्यकाळ", "रीति भविष्यकाळ", "पूर्ण भविष्यकाळ"], answer: "रीति भविष्यकाळ", year: 2018 },
-                { question: "विज्ञानाने खूप प्रगती केली आहे.", options: ["पूर्ण वर्तमानकाळ", "साधा वर्तमानकाळ", "अपूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ"], answer: "पूर्ण वर्तमानकाळ", year: 2019 },
-                { question: "मी शाळेत जात असे.", options: ["अपूर्ण भूतकाळ", "साधा भूतकाळ", "पूर्ण भूतकाळ", "रीति भूतकाळ"], answer: "रीति भूतकाळ", year: 2021 },
-                { question: "आम्ही उद्या सिनेमाला जाऊ.", options: ["पूर्ण भविष्यकाळ", "अपूर्ण भविष्यकाळ", "साधा भविष्यकाळ", "रीति भविष्यकाळ"], answer: "साधा भविष्यकाळ", year: 2023 },
-                { question: "तो पत्र लिहितो.", options: ["अपूर्ण वर्तमानकाळ", "पूर्ण वर्तमानकाळ", "रीति वर्तमानकाळ", "साधा वर्तमानकाळ"], answer: "साधा वर्तमानकाळ", year: 2024 },
-                { question: "पावसाळा सुरू झाला होता.", options: ["पूर्ण भूतकाळ", "अपूर्ण भूतकाळ", "साधा भूतकाळ", "रीति भूतकाळ"], answer: "पूर्ण भूतकाळ", year: 2024 }
-            ];
-
-            // --- STATE ---
-            let currentQuestionIndex = 0;
-            let userAnswers = new Array(quizData.length).fill(null);
-            let quizFinished = false;
-
-            // --- SELECTORS ---
-            const quizContainer = document.getElementById('quiz-container');
-            const navigationContainer = document.getElementById('navigation-container');
-            const resultContainer = document.getElementById('result-container');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const submitBtn = document.getElementById('submit-btn');
-            const reviewBtn = document.getElementById('review-btn');
-            const progressIndicator = document.getElementById('progress-indicator');
-            const watermarkContainer = document.getElementById('watermark');
-
-            // --- FUNCTIONS ---
+        function submitTest() {
+            let score = 0;
+            const totalQuestions = 20;
+            const form = document.getElementById('quizForm');
+            const questions = document.querySelectorAll('.question-card');
             
-            // Function to generate and add watermark
-            function generateWatermark() {
-                const watermarkText = "SUCCESS DIGITAL CLASSES";
-                const textCount = 50; // Number of times to repeat the text
-                let watermarkHTML = '';
-                for(let i = 0; i < textCount; i++) {
-                    watermarkHTML += `<div class="watermark-text">${watermarkText}</div>`;
-                }
-                watermarkContainer.innerHTML = watermarkHTML;
-            }
+            // Calculate Score
+            questions.forEach((card, index) => {
+                const qNum = index + 1;
+                const selectedOption = form.querySelector(`input[name="q${qNum}"]:checked`);
+                const correctAnswer = card.getAttribute('data-correct');
 
-            // Function to render the question
-            function renderQuestion(index, isReview = false) {
-                const questionData = quizData[index];
-                let optionsHTML = '';
-                
-                questionData.options.forEach((option, i) => {
-                    const isChecked = userAnswers[index] === option;
-                    let optionClass = '';
-
-                    if (isReview) {
-                        const isCorrectAnswer = option === questionData.answer;
-                        if (isCorrectAnswer) {
-                            optionClass = 'correct';
-                        }
-                        if (isChecked && !isCorrectAnswer) {
-                            optionClass = 'incorrect';
-                        }
-                        // Also highlight the correct answer if user chose wrong
-                        if (!isChecked && isCorrectAnswer){
-                            optionClass += ' correct-answer';
-                        }
-                    }
-
-                    optionsHTML += `
-                        <div class="custom-radio">
-                            <input type="radio" id="option${i}" name="question${index}" value="${option}" ${isChecked ? 'checked' : ''} ${isReview ? 'disabled' : ''}>
-                            <label for="option${i}" class="${optionClass}">
-                                <span class="font-medium">${i + 1}) ${option}</span>
-                            </label>
-                        </div>
-                    `;
-                });
-                
-                quizContainer.innerHTML = `
-                    <div class="mb-6">
-                        <p class="text-sm font-semibold text-blue-600 mb-2">प्रश्न ${index + 1} / ${quizData.length}</p>
-                        <p class="text-lg font-bold text-gray-800">${questionData.question}</p>
-                        <p class="text-xs text-gray-500 mt-1"> संदर्भ: महा TET ${questionData.year}</p>
-                    </div>
-                    <div class="${isReview ? 'review-mode' : ''}">
-                        ${optionsHTML}
-                    </div>
-                `;
-
-                // Add event listeners for new radio buttons
-                if (!isReview) {
-                    document.querySelectorAll(`input[name="question${index}"]`).forEach(radio => {
-                        radio.addEventListener('change', (e) => {
-                            userAnswers[index] = e.target.value;
-                        });
-                    });
-                }
-            }
-            
-            // Function to update UI state and navigation
-            function updateUI() {
-                progressIndicator.textContent = `प्रश्न ${currentQuestionIndex + 1} / ${quizData.length}`;
-                prevBtn.disabled = currentQuestionIndex === 0;
-                
-                if (currentQuestionIndex === quizData.length - 1) {
-                    nextBtn.classList.add('hidden');
-                    submitBtn.classList.remove('hidden');
-                } else {
-                    nextBtn.classList.remove('hidden');
-                    submitBtn.classList.add('hidden');
-                }
-            }
-
-            // Function to show results
-            function showResults() {
-                quizFinished = true;
-                quizContainer.classList.add('hidden');
-                navigationContainer.classList.add('hidden');
-                resultContainer.classList.remove('hidden');
-
-                let score = 0;
-                userAnswers.forEach((answer, index) => {
-                    if (answer === quizData[index].answer) {
-                        score++;
-                    }
-                });
-
-                document.getElementById('score').textContent = `${score} / ${quizData.length}`;
-                
-                const percentage = (score / quizData.length) * 100;
-                let feedbackText = '';
-                if (percentage >= 80) feedbackText = "उत्कृष्ट कामगिरी! तुम्ही खूप छान तयारी केली आहे.";
-                else if (percentage >= 60) feedbackText = "चांगला प्रयत्न! अजून थोडा सराव केल्यास उत्तम गुण मिळतील.";
-                else feedbackText = "काळजी करू नका! अधिक सराव आवश्यक आहे. पुन्हा प्रयत्न करा.";
-                document.getElementById('feedback').textContent = feedbackText;
-            }
-            
-            // Function for review mode
-            function startReview() {
-                 quizContainer.classList.remove('hidden');
-                 navigationContainer.classList.remove('hidden');
-                 resultContainer.classList.add('hidden');
-                 submitBtn.classList.add('hidden');
-                 nextBtn.classList.remove('hidden');
-                 
-                 currentQuestionIndex = 0;
-                 renderQuestion(currentQuestionIndex, true);
-                 updateUI();
-            }
-
-            // --- EVENT LISTENERS ---
-            nextBtn.addEventListener('click', () => {
-                if (currentQuestionIndex < quizData.length - 1) {
-                    currentQuestionIndex++;
-                    renderQuestion(currentQuestionIndex, quizFinished);
-                    updateUI();
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    card.style.borderColor = "#27ae60"; // Green border for correct
+                    card.style.backgroundColor = "#e8f8f5";
+                } else if (selectedOption) {
+                    card.style.borderColor = "#e74c3c"; // Red border for wrong
+                    card.style.backgroundColor = "#fdedec";
                 }
             });
 
-            prevBtn.addEventListener('click', () => {
-                if (currentQuestionIndex > 0) {
-                    currentQuestionIndex--;
-                    renderQuestion(currentQuestionIndex, quizFinished);
-                    updateUI();
-                }
-            });
+            // Generate Random Rank (Simulated)
+            // Simulating a rank between 150 and 2000 based on score
+            // Higher score = Lower (better) rank
+            const baseRank = 2000;
+            const rankImprovement = score * 90; 
+            const randomFactor = Math.floor(Math.random() * 50);
+            let finalRank = Math.max(1, baseRank - rankImprovement - randomFactor);
+            if(score === 20) finalRank = Math.floor(Math.random() * 10) + 1; // Top 10 for full marks
+
+            // Update Modal UI
+            document.getElementById('scoreDisplay').innerText = `${score}/${totalQuestions}`;
+            document.getElementById('rankDisplay').innerText = `#${finalRank}`;
             
-            submitBtn.addEventListener('click', () => {
-                // Simple confirmation before submitting
-                 const isConfirmed = confirm('तुम्हाला चाचणी सबमिट करायची आहे का?');
-                 if (isConfirmed) {
-                    showResults();
-                 }
-            });
+            // Show Modal
+            const modal = document.getElementById('resultModal');
+            modal.style.display = 'flex';
 
-            reviewBtn.addEventListener('click', startReview);
-
-            // --- INITIALIZATION ---
-            generateWatermark();
-            renderQuestion(currentQuestionIndex);
-            updateUI();
-        });
+            // Redirect after 3 seconds
+            setTimeout(function() {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.ezgcka.oujtga&pcampaignid=web_share';
+            }, 3000);
+        }
     </script>
+
 </body>
 </html>
