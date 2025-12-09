@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTET 2025 Practice Test 3 (Verified)</title>
+    <title>CTET 2025 Practice Test 4 (Verified)</title>
     <style>
         :root {
             --primary-color: #2c3e50;
-            --accent-color: #d35400; /* Burnt Orange for Test 3 */
+            --accent-color: #c0392b; /* Deep Red for Test 4 */
             --success-color: #27ae60;
-            --warning-color: #f1c40f;
-            --bg-color: #fffbf0;
+            --warning-color: #f39c12;
+            --bg-color: #fff5f5;
         }
 
         body {
@@ -58,20 +58,20 @@
 
         /* Promotion Banner */
         .promo-banner {
-            background: linear-gradient(135deg, #2c3e50 0%, #d35400 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #c0392b 100%);
             color: white;
             padding: 25px;
             border-radius: 12px;
             margin: 30px 0;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
             position: relative;
             overflow: hidden;
         }
 
         .promo-tag {
             background-color: var(--warning-color);
-            color: #333;
+            color: #fff;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -127,6 +127,7 @@
             padding: 15px 20px;
             margin-bottom: 15px;
             transition: box-shadow 0.2s;
+            position: relative;
         }
 
         .question-card:hover {
@@ -168,17 +169,43 @@
             border-radius: 4px;
             cursor: pointer;
             border: 1px solid transparent;
+            transition: background 0.2s;
         }
 
         .option-label:hover {
-            background-color: #fff3e0;
-            border-color: #edbb99;
+            background-color: #f9ebea;
+            border-color: #fadbd8;
         }
 
         .option-input {
             margin-right: 12px;
             margin-top: 6px;
             transform: scale(1.2);
+        }
+
+        /* Correct/Incorrect Styles */
+        .correct-answer {
+            background-color: #d4edda !important;
+            border: 1px solid #c3e6cb !important;
+            color: #155724;
+        }
+        
+        .wrong-answer {
+            background-color: #f8d7da !important;
+            border: 1px solid #f5c6cb !important;
+            color: #721c24;
+        }
+        
+        .correct-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #27ae60;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: none;
         }
 
         /* Submit Button */
@@ -227,6 +254,17 @@
             text-align: center;
             position: relative;
             animation: slideDown 0.4s ease;
+        }
+        
+        .close-modal-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
         }
 
         @keyframes slideDown {
@@ -285,14 +323,29 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        /* Floating Review Timer */
+        #reviewTimer {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            font-weight: bold;
+        }
 
     </style>
 </head>
 <body>
 
     <header>
-        <h1>CTET Practice Test - 03</h1>
-        <div class="subtitle">Mock Test Series 2025 (Set 3)</div>
+        <h1>CTET Practice Test - 04</h1>
+        <div class="subtitle">Mock Test Series 2025 (Set 4)</div>
         <div class="meta-info">
             <span>Sub: CDP, Math, EVS</span>
             <span>Marks: 20</span>
@@ -302,10 +355,10 @@
 
     <!-- PROMOTION SECTION -->
     <div class="promo-banner">
-        <div class="promo-tag">Unlock Full Access</div>
+        <div class="promo-tag">New Questions Added</div>
         <div class="promo-title">Success Digital App</div>
-        <p>Get 5000+ Previous Year Questions with Explanations</p>
-        <a href="https://play.google.com/store/apps/details?id=com.ezgcka.oujtga&pcampaignid=web_share" class="cta-button" target="_blank">Download App</a>
+        <p>Your #1 Companion for Teaching Exams Success</p>
+        <a href="https://play.google.com/store/apps/details?id=com.ezgcka.oujtga&pcampaignid=web_share" class="cta-button" target="_blank">Install Free App</a>
     </div>
 
     <form id="quizForm">
@@ -314,183 +367,190 @@
     <h3 class="section-header">Part I: CDP (बाल विकास एवं शिक्षाशास्त्र)</h3>
 
     <!-- Q1 -->
-    <div class="question-card" data-correct="C">
+    <div class="question-card" data-correct="B">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q1. लेव वाइगोत्स्की के अनुसार, बच्चों के स्वयं से बात करने (Self-talk) को क्या कहा जाता है?</span>
-            <span class="eng-text">According to Lev Vygotsky, what is the term for children speaking to themselves?</span>
+            <span class="hindi-text">Q1. लेव वाइगोत्स्की के अनुसार, बच्चों के अधिगम में सहयोग देने की प्रक्रिया (Temporary Support) को क्या कहा जाता है?</span>
+            <span class="eng-text">According to Lev Vygotsky, the temporary support provided to children in learning is called:</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q1" value="A" class="option-input">
-                <span>(A) अहंकेन्द्रित वाक् / Egocentric Speech</span>
+                <span>(A) अनुकूलन / Adaptation</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q1" value="B" class="option-input">
-                <span>(B) बड़बड़ाना / Babbling</span>
+                <span>(B) पाड़ (ढांचा) / Scaffolding</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q1" value="C" class="option-input">
-                <span>(C) व्यक्तिगत वाक् / Private Speech</span>
+                <span>(C) संरक्षण / Conservation</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q1" value="D" class="option-input">
-                <span>(D) विकृत वाक् / Distorted Speech</span>
+                <span>(D) स्कीमा / Schema</span>
             </label>
         </div>
     </div>
 
     <!-- Q2 -->
-    <div class="question-card" data-correct="B">
+    <div class="question-card" data-correct="A">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q2. हॉवर्ड गार्डनर के बहु-बुद्धि सिद्धांत के अनुसार, दूसरों की मनोदशा और इरादों को समझने की क्षमता को क्या कहा जाता है?</span>
-            <span class="eng-text">According to Howard Gardner's theory of Multiple Intelligence, the ability to understand others' moods and intentions is called:</span>
+            <span class="hindi-text">Q2. बच्चों के समाजीकरण की 'प्राथमिक संस्था' कौन सी है?</span>
+            <span class="eng-text">Which is the 'Primary Agency' of socialization for children?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q2" value="A" class="option-input">
-                <span>(A) अंतःवैयक्तिक बुद्धि / Intra-personal Intelligence</span>
+                <span>(A) परिवार / Family</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q2" value="B" class="option-input">
-                <span>(B) अंतर्वैयक्तिक बुद्धि / Inter-personal Intelligence</span>
+                <span>(B) विद्यालय / School</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q2" value="C" class="option-input">
-                <span>(C) स्थानिक बुद्धि / Spatial Intelligence</span>
+                <span>(C) मीडिया / Media</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q2" value="D" class="option-input">
-                <span>(D) तार्किक-गणितीय बुद्धि / Logical-mathematical Intelligence</span>
+                <span>(D) धार्मिक संस्थान / Religious Institutions</span>
             </label>
         </div>
     </div>
 
     <!-- Q3 -->
-    <div class="question-card" data-correct="D">
+    <div class="question-card" data-correct="C">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q3. 'समीपदूराभिमुख' (Proximodistal) सिद्धांत के अनुसार विकास कैसे होता है?</span>
-            <span class="eng-text">According to the 'Proximodistal' principle, development proceeds from:</span>
+            <span class="hindi-text">Q3. जीन पियाजे के अनुसार, नई जानकारी को मौजूदा स्कीमा में फिट करना क्या कहलाता है?</span>
+            <span class="eng-text">According to Jean Piaget, fitting new information into existing schemas is known as:</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q3" value="A" class="option-input">
-                <span>(A) सिर से पैर की ओर / Head to toe</span>
+                <span>(A) समायोजन / Accommodation</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q3" value="B" class="option-input">
-                <span>(B) पैर से सिर की ओर / Toe to head</span>
+                <span>(B) संतुलन / Equilibration</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q3" value="C" class="option-input">
-                <span>(C) बाहर से केंद्र की ओर / Extremities to center</span>
+                <span>(C) आत्मसात्करण / Assimilation</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q3" value="D" class="option-input">
-                <span>(D) केंद्र से बाहर की ओर / Center to extremities</span>
+                <span>(D) संगठन / Organization</span>
             </label>
         </div>
     </div>
 
     <!-- Q4 -->
-    <div class="question-card" data-correct="A">
+    <div class="question-card" data-correct="D">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q4. एक समावेशी कक्षा में, 'ध्यान अभाव अतिसक्रियता विकार' (ADHD) वाले छात्र के लिए कौन सी रणनीति प्रभावी है?</span>
-            <span class="eng-text">In an inclusive classroom, which strategy is effective for a student with ADHD?</span>
+            <span class="hindi-text">Q4. 'प्रगतिशील शिक्षा' (Progressive Education) के जनक किसे माना जाता है?</span>
+            <span class="eng-text">Who is considered the father of 'Progressive Education'?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q4" value="A" class="option-input">
-                <span>(A) कार्यों को छोटे, प्रबंधनीय भागों में तोड़ना / Breaking tasks into small, manageable chunks</span>
+                <span>(A) फ्रोबेल / Froebel</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q4" value="B" class="option-input">
-                <span>(B) उन्हें लंबी अवधि के लिए एक ही सीट पर बैठने को कहना / Asking them to sit in one seat for long durations</span>
+                <span>(B) मारिया मोंटेसरी / Maria Montessori</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q4" value="C" class="option-input">
-                <span>(C) जटिल निर्देशों की एक लंबी सूची देना / Giving a long list of complex instructions</span>
+                <span>(C) जीन पियाजे / Jean Piaget</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q4" value="D" class="option-input">
-                <span>(D) उन्हें कक्षा से बाहर भेजना / Sending them out of class</span>
+                <span>(D) जॉन डीवी / John Dewey</span>
             </label>
         </div>
     </div>
 
     <!-- Q5 -->
-    <div class="question-card" data-correct="C">
+    <div class="question-card" data-correct="B">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q5. बच्चों की त्रुटियों को शिक्षक द्वारा किस रूप में देखा जाना चाहिए?</span>
-            <span class="eng-text">Errors of children should be viewed by the teacher as:</span>
+            <span class="hindi-text">Q5. 'पठन-वैकल्य' (Dyslexia) और 'लेखन-वैकल्य' (Dysgraphia) किसके प्रकार हैं?</span>
+            <span class="eng-text">'Dyslexia' and 'Dysgraphia' are types of:</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q5" value="A" class="option-input">
-                <span>(A) सीखने में बाधा / Hindrance to learning</span>
+                <span>(A) मानसिक मंदता / Mental Retardation</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q5" value="B" class="option-input">
-                <span>(B) लापरवाही का संकेत / Sign of carelessness</span>
+                <span>(B) अधिगम अक्षमता / Learning Disability</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q5" value="C" class="option-input">
-                <span>(C) उनके सोचने की प्रक्रिया को समझने का एक अवसर / A window into their thinking process</span>
+                <span>(C) दृष्टि दोष / Visual Impairment</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q5" value="D" class="option-input">
-                <span>(D) अनदेखा किया जाना चाहिए / Should be ignored</span>
+                <span>(D) लोकोमोटर विकलांगता / Locomotor Disability</span>
             </label>
         </div>
     </div>
     
     <!-- Q6 -->
-    <div class="question-card" data-correct="B">
+    <div class="question-card" data-correct="A">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q6. "गुलाबी रंग लड़कियों के लिए है और नीला रंग लड़कों के लिए।" यह कथन क्या दर्शाता है?</span>
-            <span class="eng-text">"Pink is for girls and Blue is for boys." This statement represents:</span>
+            <span class="hindi-text">Q6. सतत और व्यापक मूल्यांकन (CCE) का मुख्य उद्देश्य क्या है?</span>
+            <span class="eng-text">What is the main purpose of Continuous and Comprehensive Evaluation (CCE)?</span>
         </div>
         <div class="options">
              <label class="option-label">
                 <input type="radio" name="q6" value="A" class="option-input">
-                <span>(A) लिंग समानता / Gender Equity</span>
+                <span>(A) बच्चे के विकास के सभी पहलुओं का मूल्यांकन करना / To evaluate all aspects of child's development</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q6" value="B" class="option-input">
-                <span>(B) लिंग रूढ़िवादिता / Gender Stereotyping</span>
+                <span>(B) बच्चों में प्रतिस्पर्धा बढ़ाना / To increase competition among children</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q6" value="C" class="option-input">
-                <span>(C) लिंग स्थिरता / Gender Constancy</span>
+                <span>(C) कमजोर छात्रों की पहचान करना / To identify weak students</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q6" value="D" class="option-input">
-                <span>(D) लिंग संवेदनशीलता / Gender Sensitivity</span>
+                <span>(D) केवल शैक्षिक उपलब्धियों को मापना / To measure only scholastic achievements</span>
             </label>
          </div>
      </div>
      
      <!-- Q7 -->
      <div class="question-card" data-correct="C">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q7. 'अधिगम के रूप में आकलन' (Assessment as Learning) में क्या शामिल है?</span>
-            <span class="eng-text">Assessment as Learning involves:</span>
+            <span class="hindi-text">Q7. 'प्रकृति-पोषण' (Nature-Nurture) विवाद किससे संबंधित है?</span>
+            <span class="eng-text">The 'Nature-Nurture' debate refers to:</span>
         </div>
         <div class="options">
              <label class="option-label">
                 <input type="radio" name="q7" value="A" class="option-input">
-                <span>(A) सत्र के अंत में परीक्षा / Exam at the end of session</span>
+                <span>(A) व्यवहार और वातावरण / Behavior and Environment</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q7" value="B" class="option-input">
-                <span>(B) शिक्षक द्वारा ग्रेडिंग / Grading by teacher</span>
+                <span>(B) वातावरण और जीव विज्ञान / Environment and Biology</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q7" value="C" class="option-input">
-                <span>(C) स्व-आकलन और प्रतिबिंब / Self-assessment and reflection</span>
+                <span>(C) आनुवंशिकी और वातावरण / Genetics and Environment</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q7" value="D" class="option-input">
-                <span>(D) मानकीकृत परीक्षण / Standardized testing</span>
+                <span>(D) वातावरण और पालन-पोषण / Environment and Upbringing</span>
             </label>
          </div>
      </div>
@@ -499,157 +559,163 @@
     <h3 class="section-header">Part II: Mathematics (गणित)</h3>
 
     <!-- Q8 -->
-    <div class="question-card" data-correct="C">
+    <div class="question-card" data-correct="D">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q8. चार और एक-तिहाई समकोण में डिग्रियों की संख्या कितनी है?</span>
-            <span class="eng-text">Number of degrees in four and one-third right angles is:</span>
+            <span class="hindi-text">Q8. 96 के सभी धनात्मक गुणनखंडों का योग क्या है?</span>
+            <span class="eng-text">What is the sum of all positive factors of 96?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q8" value="A" class="option-input">
-                <span>(A) 400°</span>
+                <span>(A) 156</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q8" value="B" class="option-input">
-                <span>(B) 420°</span>
+                <span>(B) 251</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q8" value="C" class="option-input">
-                <span>(C) 390°</span>
+                <span>(C) 250</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q8" value="D" class="option-input">
-                <span>(D) 395°</span>
+                <span>(D) 252</span>
             </label>
         </div>
     </div>
 
     <!-- Q9 -->
-    <div class="question-card" data-correct="A">
+    <div class="question-card" data-correct="B">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q9. एक आयत (Rectangle) में सममित रेखाओं (Lines of symmetry) की संख्या कितनी होती है?</span>
-            <span class="eng-text">The number of lines of symmetry in a rectangle is:</span>
+            <span class="hindi-text">Q9. प्राथमिक स्तर पर गणित पढ़ाने का सबसे कम प्रभावी तरीका कौन सा है?</span>
+            <span class="eng-text">Which is the LEAST effective method to teach mathematics at primary level?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q9" value="A" class="option-input">
-                <span>(A) 2</span>
+                <span>(A) खेल आधारित विधि / Play based method</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q9" value="B" class="option-input">
-                <span>(B) 4</span>
+                <span>(B) ब्लैकबोर्ड से नकल करना / Copying from blackboard</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q9" value="C" class="option-input">
-                <span>(C) 1</span>
+                <span>(C) हस्त-कौशल सामग्री का उपयोग / Using manipulatives</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q9" value="D" class="option-input">
-                <span>(D) 0</span>
+                <span>(D) वास्तविक जीवन से जोड़ना / Connecting to real life</span>
             </label>
         </div>
     </div>
 
     <!-- Q10 -->
-    <div class="question-card" data-correct="C">
+    <div class="question-card" data-correct="A">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q10. 18 & 3/4 में कितने चतुर्थांश (Quarters) हैं?</span>
-            <span class="eng-text">How many quarters are there in 18 & 3/4?</span>
+            <span class="hindi-text">Q10. यदि 1001 x 111 = 110000 + 11 x _____, तो रिक्त स्थान में संख्या है:</span>
+            <span class="eng-text">If 1001 x 111 = 110000 + 11 x _____, then the number in the blank space is:</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q10" value="A" class="option-input">
-                <span>(A) 72</span>
+                <span>(A) 101</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q10" value="B" class="option-input">
-                <span>(B) 68</span>
+                <span>(B) 211</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q10" value="C" class="option-input">
-                <span>(C) 75</span>
+                <span>(C) 111</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q10" value="D" class="option-input">
-                <span>(D) 34</span>
+                <span>(D) 121</span>
             </label>
         </div>
     </div>
     
     <!-- Q11 -->
-    <div class="question-card" data-correct="A">
+    <div class="question-card" data-correct="C">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q11. निम्नलिखित में से कौन सी एक 'आगमनात्मक विधि' (Inductive Method) की विशेषता है?</span>
-            <span class="eng-text">Which of the following is a characteristic of 'Inductive Method'?</span>
+            <span class="hindi-text">Q11. एनसीएफ 2005 के अनुसार, प्राथमिक स्तर पर गणित पाठ्यक्रम का मुख्य लक्ष्य क्या है?</span>
+            <span class="eng-text">According to NCF 2005, what is the main goal of Mathematics curriculum at primary level?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q11" value="A" class="option-input">
-                <span>(A) उदाहरण से नियम की ओर जाना / Proceeding from Example to Rule</span>
+                <span>(A) छात्रों को प्रतियोगी परीक्षाओं के लिए तैयार करना / Preparing students for competitive exams</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q11" value="B" class="option-input">
-                <span>(B) नियम से उदाहरण की ओर जाना / Proceeding from Rule to Example</span>
+                <span>(B) जटिल गणनाएँ सिखाना / Teaching complex calculations</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q11" value="C" class="option-input">
-                <span>(C) रटने पर ध्यान केंद्रित करना / Focusing on Rote Memorization</span>
+                <span>(C) बच्चे की सोच का गणितीयकरण करना / Mathematization of child's thinking</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q11" value="D" class="option-input">
-                <span>(D) केवल सूत्र का उपयोग करना / Using only formulas</span>
+                <span>(D) सूत्र याद कराना / Memorizing formulas</span>
             </label>
         </div>
     </div>
     
     <!-- Q12 -->
-    <div class="question-card" data-correct="D">
+    <div class="question-card" data-correct="B">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q12. निम्नलिखित में से कौन सी 3D आकृति एक 'बहुफलक' (Polyhedron) नहीं है?</span>
-            <span class="eng-text">Which of the following 3D shapes is NOT a polyhedron?</span>
+            <span class="hindi-text">Q12. निम्नलिखित में से कौन सा प्राथमिक स्तर के गणित पाठ्यक्रम का हिस्सा नहीं है?</span>
+            <span class="eng-text">Which of the following is NOT part of Primary Mathematics Curriculum?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q12" value="A" class="option-input">
-                <span>(A) घन / Cube</span>
+                <span>(A) प्रतिरूप (पैटर्न) / Patterns</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q12" value="B" class="option-input">
-                <span>(B) प्रिज्म / Prism</span>
+                <span>(B) अनुपात और समानुपात / Ratio and Proportion</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q12" value="C" class="option-input">
-                <span>(C) पिरामिड / Pyramid</span>
+                <span>(C) सममिति / Symmetry</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q12" value="D" class="option-input">
-                <span>(D) बेलन / Cylinder</span>
+                <span>(D) आंकड़ा प्रबंधन / Data Handling</span>
             </label>
         </div>
     </div>
     
     <!-- Q13 -->
-    <div class="question-card" data-correct="B">
+    <div class="question-card" data-correct="A">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q13. गणित में, 'गणितीयकरण' (Mathematization) का अर्थ क्या है?</span>
-            <span class="eng-text">In Mathematics, what does 'Mathematization' mean?</span>
+            <span class="hindi-text">Q13. 500 ग्राम और 2 किलोग्राम 50 ग्राम का योग क्या है?</span>
+            <span class="eng-text">What is the sum of 500g and 2kg 50g?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q13" value="A" class="option-input">
-                <span>(A) बहुत सारे गणित के सवाल हल करना / Solving many math problems</span>
+                <span>(A) 2 किलोग्राम 550 ग्राम / 2kg 550g</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q13" value="B" class="option-input">
-                <span>(B) बच्चे की विचार प्रक्रिया का गणितीयकरण करना / Mathematizing the child's thought process</span>
+                <span>(B) 2505 ग्राम / 2505g</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q13" value="C" class="option-input">
-                <span>(C) गणित की किताबें पढ़ना / Reading math books</span>
+                <span>(C) 3 किलोग्राम / 3kg</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q13" value="D" class="option-input">
-                <span>(D) सूत्रों को याद करना / Memorizing formulas</span>
+                <span>(D) 700 ग्राम / 700g</span>
             </label>
         </div>
     </div>
@@ -659,178 +725,185 @@
 
     <!-- Q14 -->
     <div class="question-card" data-correct="B">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q14. 'कांस्य' (Bronze) किसका मिश्र धातु है?</span>
-            <span class="eng-text">Bronze is an alloy of:</span>
+            <span class="hindi-text">Q14. बिहार के लोगों के लिए मधुमक्खी पालन शुरू करने का सबसे अच्छा समय कौन सा है?</span>
+            <span class="eng-text">Which is the best period for the people of Bihar to start bee-keeping?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q14" value="A" class="option-input">
-                <span>(A) तांबा और जस्ता / Copper and Zinc</span>
+                <span>(A) जनवरी से मार्च / January to March</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q14" value="B" class="option-input">
-                <span>(B) तांबा और टिन / Copper and Tin</span>
+                <span>(B) अक्टूबर से दिसंबर / October to December</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q14" value="C" class="option-input">
-                <span>(C) एल्यूमीनियम और तांबा / Aluminum and Copper</span>
+                <span>(C) अप्रैल से जून / April to June</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q14" value="D" class="option-input">
-                <span>(D) तांबा और लोहा / Copper and Iron</span>
+                <span>(D) जुलाई से सितंबर / July to September</span>
             </label>
         </div>
     </div>
 
     <!-- Q15 -->
-    <div class="question-card" data-correct="D">
+    <div class="question-card" data-correct="C">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q15. हाथियों के झुंड के बारे में सही कथन चुनें:</span>
-            <span class="eng-text">Choose the correct statement about elephant herds:</span>
+            <span class="hindi-text">Q15. 'रेगिस्तानी ओक' (Desert Oak) एक पेड़ है जो कहाँ पाया जाता है?</span>
+            <span class="eng-text">'Desert Oak' is a tree which is found in:</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q15" value="A" class="option-input">
-                <span>(A) नर हाथी झुंड के मुखिया होते हैं / Male elephants are the leaders</span>
+                <span>(A) अबू धाबी / Abu Dhabi</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q15" value="B" class="option-input">
-                <span>(B) हाथी दिन में 10 घंटे सोते हैं / Elephants sleep 10 hours a day</span>
+                <span>(B) राजस्थान / Rajasthan</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q15" value="C" class="option-input">
-                <span>(C) झुंड में केवल नर हाथी होते हैं / Herd has only male elephants</span>
+                <span>(C) ऑस्ट्रेलिया / Australia</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q15" value="D" class="option-input">
-                <span>(D) सबसे बुजुर्ग हथिनी मुखिया होती है और झुंड में मुख्य रूप से मादा और बच्चे होते हैं / Oldest female is leader; herd has mostly females & babies</span>
+                <span>(D) मेघालय / Meghalaya</span>
             </label>
         </div>
     </div>
 
     <!-- Q16 -->
     <div class="question-card" data-correct="A">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q16. अल-बरूनी (Al-Biruni) किस देश से भारत आया था?</span>
-            <span class="eng-text">Al-Biruni came to India from which country?</span>
+            <span class="hindi-text">Q16. बाघ (Tiger) के बारे में निम्नलिखित में से कौन सा कथन सही है?</span>
+            <span class="eng-text">Which of the following statements is correct about Tigers?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q16" value="A" class="option-input">
-                <span>(A) उज्बेकिस्तान / Uzbekistan</span>
+                <span>(A) उसकी मूंछें बहुत संवेदनशील होती हैं और हवा में कंपन को भांप लेती हैं / Whiskers are very sensitive & sense vibrations in air</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q16" value="B" class="option-input">
-                <span>(B) ओमान / Oman</span>
+                <span>(B) बाघ रात में हमसे 4 गुना बेहतर देख सकते हैं / Tigers can see 4 times better than us at night</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q16" value="C" class="option-input">
-                <span>(C) अफगानिस्तान / Afghanistan</span>
+                <span>(C) बाघ की दहाड़ 10 किमी तक सुनी जा सकती है / Tiger's roar can be heard upto 10km</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q16" value="D" class="option-input">
-                <span>(D) बांग्लादेश / Bangladesh</span>
+                <span>(D) बाघ केवल समूह में रहते हैं / Tigers live only in groups</span>
             </label>
         </div>
     </div>
     
     <!-- Q17 -->
-    <div class="question-card" data-correct="B">
+    <div class="question-card" data-correct="D">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q17. निम्नलिखित में से कौन सा समूह अरब सागर के तट पर स्थित है?</span>
-            <span class="eng-text">Which of the following group of states has a coast on the Arabian Sea?</span>
+            <span class="hindi-text">Q17. निम्नलिखित में से कौन सा समूह खाना पकाने के तरीकों (Cooking Methods) का सही समूह है?</span>
+            <span class="eng-text">Which of the following group represents correct methods of cooking food?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q17" value="A" class="option-input">
-                <span>(A) आंध्र प्रदेश, तेलंगाना, ओडिशा / Andhra Pradesh, Telangana, Odisha</span>
+                <span>(A) उबालना, गूंधना, भूनना / Boiling, Kneading, Roasting</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q17" value="B" class="option-input">
-                <span>(B) कर्नाटक, केरल, गुजरात / Karnataka, Kerala, Gujarat</span>
+                <span>(B) सेकना, उबालना, बेलना / Baking, Boiling, Rolling</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q17" value="C" class="option-input">
-                <span>(C) तमिलनाडु, आंध्र प्रदेश, कर्नाटक / Tamil Nadu, Andhra Pradesh, Karnataka</span>
+                <span>(C) तलना, भिगोना, भूनना / Frying, Soaking, Roasting</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q17" value="D" class="option-input">
-                <span>(D) पश्चिम बंगाल, ओडिशा, केरल / West Bengal, Odisha, Kerala</span>
+                <span>(D) सेकना, तलना, भूनना / Baking, Frying, Roasting</span>
             </label>
         </div>
     </div>
     
     <!-- Q18 -->
-    <div class="question-card" data-correct="C">
+    <div class="question-card" data-correct="B">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q18. 'मधुबनी' चित्रकला (Madhubani painting) किस राज्य से संबंधित है?</span>
-            <span class="eng-text">'Madhubani' painting belongs to which state?</span>
+            <span class="hindi-text">Q18. बंगाल की खाड़ी (Bay of Bengal) के तट पर स्थित भारतीय राज्य/केंद्र शासित प्रदेश कौन सा है?</span>
+            <span class="eng-text">Which Indian State/UT is on the coast of the Bay of Bengal?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q18" value="A" class="option-input">
-                <span>(A) ओडिशा / Odisha</span>
+                <span>(A) केरल / Kerala</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q18" value="B" class="option-input">
-                <span>(B) राजस्थान / Rajasthan</span>
+                <span>(B) ओडिशा / Odisha</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q18" value="C" class="option-input">
-                <span>(C) बिहार / Bihar</span>
+                <span>(C) गोवा / Goa</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q18" value="D" class="option-input">
-                <span>(D) पश्चिम बंगाल / West Bengal</span>
+                <span>(D) गुजरात / Gujarat</span>
             </label>
         </div>
     </div>
     
     <!-- Q19 -->
     <div class="question-card" data-correct="A">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q19. मच्छरों से फैलने वाले रोगों का समूह है:</span>
-            <span class="eng-text">A set of diseases spread by mosquitoes is:</span>
+            <span class="hindi-text">Q19. 'पोचमपल्ली' (Pochampally) एक कस्बा है जो अपनी विशेष प्रकार की साड़ियों के लिए प्रसिद्ध है। यह कस्बा किस राज्य का हिस्सा है?</span>
+            <span class="eng-text">'Pochampally' is a town famous for special sarees. This town is part of which state?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q19" value="A" class="option-input">
-                <span>(A) डेंगू, मलेरिया, चिकनगुनिया / Dengue, Malaria, Chikungunya</span>
+                <span>(A) तेलंगाना / Telangana</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q19" value="B" class="option-input">
-                <span>(B) मियादी बुखार, हैजा, चिकनगुनिया / Typhoid, Cholera, Chikungunya</span>
+                <span>(B) तमिलनाडु / Tamil Nadu</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q19" value="C" class="option-input">
-                <span>(C) मलेरिया, एचआईवी-एड्स, डेंगू / Malaria, HIV-AIDS, Dengue</span>
+                <span>(C) कर्नाटक / Karnataka</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q19" value="D" class="option-input">
-                <span>(D) हैजा, डेंगू, मलेरिया / Cholera, Dengue, Malaria</span>
+                <span>(D) केरल / Kerala</span>
             </label>
         </div>
     </div>
     
     <!-- Q20 -->
-    <div class="question-card" data-correct="B">
+    <div class="question-card" data-correct="C">
+        <div class="correct-badge">Correct</div>
         <div class="q-text">
-            <span class="hindi-text">Q20. 'चेराव' (Cheraw) नाच कहाँ के लोग करते हैं?</span>
-            <span class="eng-text">'Cheraw' is the dance form of the people of:</span>
+            <span class="hindi-text">Q20. हमारे देश में 'ठंडा रेगिस्तान' (Cold Desert) किसे कहा जाता है?</span>
+            <span class="eng-text">Which place is called 'Cold Desert' in our country?</span>
         </div>
         <div class="options">
             <label class="option-label">
                 <input type="radio" name="q20" value="A" class="option-input">
-                <span>(A) झारखंड / Jharkhand</span>
+                <span>(A) जैसलमेर / Jaisalmer</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q20" value="B" class="option-input">
-                <span>(B) मिजोरम / Mizoram</span>
+                <span>(B) दार्जिलिंग / Darjeeling</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q20" value="C" class="option-input">
-                <span>(C) मणिपुर / Manipur</span>
+                <span>(C) लद्दाख / Ladakh</span>
             </label>
             <label class="option-label">
                 <input type="radio" name="q20" value="D" class="option-input">
@@ -840,7 +913,7 @@
     </div>
 
     <div class="submit-container">
-        <button type="button" class="submit-btn" onclick="submitTest()">Submit Test 3</button>
+        <button type="button" class="submit-btn" onclick="submitTest()">Submit Test 4</button>
     </div>
 
     </form>
@@ -848,7 +921,8 @@
     <!-- RESULT MODAL -->
     <div id="resultModal" class="modal-overlay">
         <div class="modal-content">
-            <h2 style="color:var(--primary-color);">Test 3 Result</h2>
+            <button class="close-modal-btn" onclick="closeModal()">×</button>
+            <h2 style="color:var(--primary-color);">Test 4 Result</h2>
             <div class="score-circle" id="scoreDisplay">0/20</div>
             
             <div class="rank-box">
@@ -857,11 +931,13 @@
             </div>
 
             <div class="redirect-msg">
-                Please wait, checking more tests... <span class="spinner"></span>
-                <br>Redirecting to Success Digital App in 3 seconds...
+                Review your answers now!<br>
+                Redirecting to Success Digital App in <span id="timerCount">30</span> seconds...
             </div>
         </div>
     </div>
+    
+    <div id="reviewTimer">Redirecting in: <span id="floatTimer">30</span>s</div>
 
     <!-- Footer Promo -->
     <div style="text-align: center; margin-top: 40px; padding: 20px; border-top: 2px dashed #ccc;">
@@ -871,36 +947,50 @@
     </div>
 
     <script>
+        let countdownInterval;
+
         function submitTest() {
             let score = 0;
             const totalQuestions = 20;
             const form = document.getElementById('quizForm');
             const questions = document.querySelectorAll('.question-card');
             
-            // Calculate Score
+            // Calculate Score & Visual Feedback
             questions.forEach((card, index) => {
                 const qNum = index + 1;
                 const selectedOption = form.querySelector(`input[name="q${qNum}"]:checked`);
                 const correctAnswer = card.getAttribute('data-correct');
+                const badge = card.querySelector('.correct-badge');
+                
+                // Reset styles
+                card.querySelectorAll('.option-label').forEach(label => {
+                    label.classList.remove('correct-answer', 'wrong-answer');
+                });
 
-                if (selectedOption && selectedOption.value === correctAnswer) {
-                    score++;
-                    card.style.borderColor = "#27ae60"; // Green border for correct
-                    card.style.backgroundColor = "#e8f8f5";
-                } else if (selectedOption) {
-                    card.style.borderColor = "#e74c3c"; // Red border for wrong
-                    card.style.backgroundColor = "#fdedec";
+                if (selectedOption) {
+                    if (selectedOption.value === correctAnswer) {
+                        score++;
+                        // Highlight selected correct option
+                        selectedOption.parentElement.classList.add('correct-answer');
+                        badge.style.display = 'block';
+                    } else {
+                        // Highlight wrong selection
+                        selectedOption.parentElement.classList.add('wrong-answer');
+                        // Highlight correct answer
+                        card.querySelector(`input[value="${correctAnswer}"]`).parentElement.classList.add('correct-answer');
+                    }
+                } else {
+                    // Highlight correct answer even if not attempted
+                     card.querySelector(`input[value="${correctAnswer}"]`).parentElement.classList.add('correct-answer');
                 }
             });
 
-            // Generate Random Rank (Simulated)
-            // Simulating a rank between 150 and 2000 based on score
-            // Higher score = Lower (better) rank
+            // Generate Random Rank
             const baseRank = 2000;
             const rankImprovement = score * 90; 
             const randomFactor = Math.floor(Math.random() * 50);
             let finalRank = Math.max(1, baseRank - rankImprovement - randomFactor);
-            if(score === 20) finalRank = Math.floor(Math.random() * 10) + 1; // Top 10 for full marks
+            if(score === 20) finalRank = Math.floor(Math.random() * 10) + 1;
 
             // Update Modal UI
             document.getElementById('scoreDisplay').innerText = `${score}/${totalQuestions}`;
@@ -909,11 +999,34 @@
             // Show Modal
             const modal = document.getElementById('resultModal');
             modal.style.display = 'flex';
+            
+            // Start 30s Countdown
+            startRedirectTimer();
+        }
+        
+        function closeModal() {
+             document.getElementById('resultModal').style.display = 'none';
+             // Show floating timer so user knows redirect is still pending
+             document.getElementById('reviewTimer').style.display = 'block';
+        }
 
-            // Redirect after 3 seconds
-            setTimeout(function() {
-                window.location.href = 'https://play.google.com/store/apps/details?id=com.ezgcka.oujtga&pcampaignid=web_share';
-            }, 3000);
+        function startRedirectTimer() {
+            let timeLeft = 30;
+            const timerDisplay = document.getElementById('timerCount');
+            const floatDisplay = document.getElementById('floatTimer');
+            
+            clearInterval(countdownInterval); // Clear any existing timer
+            
+            countdownInterval = setInterval(function() {
+                timeLeft--;
+                timerDisplay.innerText = timeLeft;
+                floatDisplay.innerText = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'https://play.google.com/store/apps/details?id=com.ezgcka.oujtga&pcampaignid=web_share';
+                }
+            }, 1000);
         }
     </script>
 
